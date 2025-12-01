@@ -1,0 +1,17 @@
+[Unit]
+Description= Monitor for http_app 
+After=network.target http_app.service
+Requires=http_app.service
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/m_app/monitoring.sh
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

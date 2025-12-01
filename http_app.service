@@ -1,0 +1,16 @@
+[Unit]
+Description= HelloWorld HTTP app
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/bin/python3 /m_app/app.py
+Restart=on-failure
+RestartSec=5
+WorkingDirectory=/m_app
+
+[Install]
+WantedBy=multi-user.target
+
